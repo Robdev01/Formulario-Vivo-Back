@@ -1,0 +1,70 @@
+📁 app.py
+✨ O que faz:
+É o ponto de entrada principal da aplicação Flask.
+
+Cria e configura a aplicação.
+
+Define variáveis de ambiente, configurações do MySQL, CORS, e registra os blueprints (rotas).
+
+📌 Por que existe:
+Centraliza a configuração e a inicialização da aplicação.
+
+Segue o padrão factory pattern com a função create_app() para facilitar testes e manutenções.
+
+📁 routes/cadastro_routes.py
+✨ O que faz:
+Define as rotas relacionadas ao cadastro de cliente, como POST /api/cadastro.
+
+📌 Por que existe:
+Organização: separa a definição das rotas da lógica do core da aplicação.
+
+Permite dividir o projeto por funcionalidades (ex: cadastro, auth, pesquisa), cada uma em seu módulo.
+
+📁 controller.py
+✨ O que faz:
+Contém a lógica de inserção no banco de dados, como a função inserir_cliente(data).
+
+📌 Por que existe:
+Separa a lógica de negócios da definição das rotas.
+
+Torna o código mais limpo e fácil de testar e manter.
+
+Evita que as rotas fiquem “inchadas” com código SQL direto.
+
+📁 models.py
+✨ O que faz:
+Define os campos da entidade cliente com a função get_cliente_fields().
+
+📌 Por que existe:
+Garante padronização dos campos utilizados em validação, inserção, e resposta.
+
+Facilita mudanças futuras (ex: adicionar um campo novo), pois a lista de campos está centralizada.
+
+É o equivalente mais simples e direto de um “modelo” de dados, mesmo sem ORM.
+
+📁 .env
+✨ O que faz:
+Armazena informações sensíveis e configurações da aplicação, como host do banco de dados, usuário e senha.
+
+📌 Por que existe:
+Evita hardcode de senhas e configurações no código-fonte.
+
+Permite mudar facilmente as configurações entre ambientes (desenvolvimento, produção).
+
+📁 requirements.txt (opcional, mas recomendado)
+✨ O que faz:
+Lista todas as dependências do projeto (flask, flask-cors, flask-mysqldb, python-dotenv etc).
+
+📌 Por que existe:
+Permite que qualquer pessoa instale o ambiente com pip install -r requirements.txt.
+
+🧩 Exemplo de Fluxo (Cadastro):
+Frontend envia um POST com JSON para /api/cadastro.
+
+O Flask recebe essa requisição em cadastro_routes.py.
+
+A função cadastrar_cliente() chama get_cliente_fields() para validar os dados.
+
+Se tudo estiver certo, a função inserir_cliente() do controller.py insere no banco.
+
+Se a operação for bem-sucedida, retorna 201 Created.
