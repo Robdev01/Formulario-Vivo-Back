@@ -1,3 +1,4 @@
+
 from flask import Flask, request
 from controller import connect_db, pesquisar_dados
 

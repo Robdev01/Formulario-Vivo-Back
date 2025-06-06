@@ -1,3 +1,4 @@
+
 import mysql.connector
 
 def connect_db():
@@ -16,4 +17,3 @@ def pesquisar_dados(query):
     resultados = cursor.fetchall()
     cursor.close()
     return resultados
-

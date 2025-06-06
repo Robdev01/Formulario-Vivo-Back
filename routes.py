@@ -15,12 +15,10 @@ def login():
 def pesquisa():
     if request.method == 'POST':
         query = request.form['campo_de_pesquisa']
-        resultados = pesquisar_dados(query)
+        return pesquisar_dados(query)
    
 
 
 @app.route('/admin')
 def admin():
    
-
-
