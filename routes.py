@@ -32,3 +32,4 @@ def cadastrar_cliente():
     except Exception as e:
         # Em caso de erro, retorna uma mensagem com status 500 (Internal Server Error)
         return jsonify({'error': str(e)}), 500
+    

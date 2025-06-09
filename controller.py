@@ -11,20 +11,21 @@ def inserir_cliente(data):
 
     # Define a query SQL de inserção (INSERT INTO) com placeholders (%s) para os dados
     query = """
-        INSERT INTO clientes (sip, ddr, lp, nome, bairro, endereco, numero, referencia)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        INSERT INTO dados (cliente, sip, ddr, lp, atposx, cabo, fibras, enlace, porta)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
 
     # Preenche os valores com base no dicionário 'data' recebido
     valores = (
+        data['cliente'],
         data['sip'],
         data['ddr'],
         data['lp'],
-        data['nome'],
-        data['bairro'],
-        data['endereco'],
-        data['numero'],
-        data['referencia']
+        data['atposx'],
+        data['cabo'],
+        data['fibras'],
+        data['enlace'],
+        data['porta']
     )
 
     # Executa a query com os valores passados
@@ -35,3 +36,19 @@ def inserir_cliente(data):
 
     # Fecha o cursor para liberar recursos
     cursor.close()
+
+#def pesquisar_sip():
+    # Obtém a conexão com o banco de dados MySQL
+    #conn = mysql.connection
+
+    # Cria um cursor para executar comandos SQL
+    #cursor = conn.cursor()
+
+    #Define a query de pesquisa(SELECT FROM) onde será procurado o valor do sip
+    #query='''
+    #    SELECT sip FROM dados WHERE sip = %s'''
+    
+    #Executa a query
+    #cursor.execute(query)
+
+

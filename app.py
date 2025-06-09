@@ -7,6 +7,7 @@ from flask_cors import CORS
 # Importa o conector MySQL compatível com Flask
 from flask_mysqldb import MySQL
 
+
 # Importa a função para carregar variáveis de ambiente do arquivo .env
 from dotenv import load_dotenv
 
@@ -23,15 +24,16 @@ def create_app():
 
     # Cria uma instância do Flask
     app = Flask(__name__)
+    
 
     # Habilita o CORS para a aplicação (permitindo que o frontend acesse a API)
     CORS(app)
 
     # Define as configurações do banco de dados usando variáveis do .env
-    app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST')             # Ex: "localhost"
-    app.config['MYSQL_USER'] = os.getenv('MYSQL_USER')             # Ex: "root"
-    app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD')     # Ex: "senha"
-    app.config['MYSQL_DATABASE'] = os.getenv('MYSQL_DATABASE')     # Ex: "nome_do_banco"
+    app.config['MYSQL_HOST']=os.getenv('MYSQL_HOST')             # Ex: "localhost"
+    app.config['MYSQL_USER']=os.getenv('MYSQL_USER')             # Ex: "root"
+    app.config['MYSQL_PASSWORD']=os.getenv('MYSQL_PASSWORD')     # Ex: "senha"
+    app.config['MYSQL_DATABASE'] =os.getenv('MYSQL_DATABASE')     # Ex: "nome_do_banco"
 
     # Inicializa o MySQL com a app Flask
     mysql.init_app(app)
