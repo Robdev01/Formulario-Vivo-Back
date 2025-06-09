@@ -1,7 +1,5 @@
 from __init__ import mysql
 
-from __init__ import mysql
-
 def buscar_por_sip(sip):
     conn = mysql.connection
     cursor = conn.cursor()
