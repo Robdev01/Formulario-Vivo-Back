@@ -11,6 +11,8 @@ from flask_mysqldb import MySQL
 # Importa a função para carregar variáveis de ambiente do arquivo .env
 from dotenv import load_dotenv
 
+from __init__ import MySQL
+
 # Importa o módulo os para acessar variáveis de ambiente
 import os
 
@@ -30,10 +32,16 @@ def create_app():
     CORS(app)
 
     # Define as configurações do banco de dados usando variáveis do .env
-    app.config['MYSQL_HOST']=os.getenv('MYSQL_HOST')             # Ex: "localhost"
-    app.config['MYSQL_USER']=os.getenv('MYSQL_USER')             # Ex: "root"
-    app.config['MYSQL_PASSWORD']=os.getenv('MYSQL_PASSWORD')     # Ex: "senha"
-    app.config['MYSQL_DATABASE'] =os.getenv('MYSQL_DATABASE')     # Ex: "nome_do_banco"
+    app.config['MYSQL_HOST'] = '127.0.0.1'         # Ex: "localhost"
+    app.config['MYSQL_USER'] = 'root'             # Ex: "root"
+    app.config['MYSQL_PASSWORD'] = 'Lucas3306'     # Ex: "senha"
+    app.config['MYSQL_DATABASE'] = 'dados_formulario'     # Ex: "nome_do_banco"
+
+    print("Conectando ao MySQL:")    
+    print(f"HOST: {app.config['MYSQL_HOST']}")    
+    print(f"USER: {app.config['MYSQL_USER']}")    
+    print(f"PASSWORD: {'(vazio)' if app.config['MYSQL_PASSWORD'] == '' else '********'}")    
+    print(f"DATABASE: {app.config['MYSQL_DATABASE']}")
 
     # Inicializa o MySQL com a app Flask
     mysql.init_app(app)
@@ -52,3 +60,5 @@ if __name__ == '__main__':
 
     # Roda o servidor Flask em modo debug
     app.run(debug=True)
+    
+    
