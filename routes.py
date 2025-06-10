@@ -2,10 +2,10 @@
 from flask import Blueprint, request, jsonify
 
 # Importa a função que insere cliente no banco de dados
-from controller import inserir_cliente, verificar_existencia, buscar_por_sip, buscar_por_ddr, buscar_por_lp
+from controller import inserir_cliente, verificar_existencia, buscar_por_sip, buscar_por_ddr, buscar_por_lp, entrar_login
 
 # Importa a função que retorna os nomes dos campos obrigatórios do cliente
-from models import get_cliente_fields
+from models import get_cliente_fields, get_usuario_fields
 
 # Cria um blueprint chamado 'cadastro_routes' para agrupar rotas relacionadas ao cadastro
 cadastro_routes = Blueprint('cadastro_routes', __name__)
@@ -62,3 +62,29 @@ def rota_lp():
         return jsonify({'error': 'Parâmetro LP ausente'}), 400
     resultados = buscar_por_lp(lp)
     return jsonify(resultados)
+
+@cadastro_routes.route('/api/login',methods=['POST'])
+def login_usuario():
+    data = request.json
+
+    for field in ['login', 'senha']:
+        if field not in data or not data[field]:
+            # Retorna erro 400 (Bad Request) com mensagem indicando o campo ausente
+            return jsonify({'error': f'Campo obrigatório: {field}'}), 400 
+
+    try:
+        # Tenta inserir o login no banco de dados usando a função importada
+        entrar_login(data)
+        
+        # Retorna mensagem de sucesso com status 201 (Created)
+        return jsonify({'message': 'Login cadastrado com sucesso!',
+                        'permissao': data['permissao'],
+                        'login':data['login'],
+                        'senha':data['senha']}), 201
+    
+        
+        
+
+    except Exception as e:
+        # Em caso de erro, retorna uma mensagem com status 500 (Internal Server Error)
+        return jsonify({'error': str(e)}), 500

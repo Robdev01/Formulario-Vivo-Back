@@ -45,6 +45,37 @@ def inserir_cliente(data):
         print("❌ Erro ao inserir cliente:", e)        
     raise
 
+def entrar_login(data):
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("USE dados_formulario")
+
+    query = """ INSERT INTO usuarios (nome, login, senha, permissao)
+                VALUES (%s,%s,%s,%s)"""
+    
+    valores = ( 
+                data["nome"],
+                data["login"],
+                data["senha"],
+                data["permissao"])
+    
+    cursor.execute(query,valores)
+    conn.commit()
+    cursor.close()
+
+
+
+def verificar_existencia(sip, ddr, lp):
+    conn = mysql.connection
+    cursor = conn.cursor()
+
+    query = "SELECT * FROM dados WHERE sip = %s OR ddr = %s OR lp = %s"
+    cursor.execute(query, (sip, ddr, lp))
+    resultado = cursor.fetchone()
+
+    cursor.close()
+    return resultado is not None
+
 def buscar_por_sip(sip):
     conn = mysql.connection
     cursor = conn.cursor()
@@ -73,18 +104,6 @@ def buscar_por_lp(lp):
     return [dict(zip(columns, row)) for row in rows]
 
 
-
-
-def verificar_existencia(sip, ddr, lp):
-    conn = mysql.connection
-    cursor = conn.cursor()
-
-    query = "SELECT * FROM dados WHERE sip = %s OR ddr = %s OR lp = %s"
-    cursor.execute(query, (sip, ddr, lp))
-    resultado = cursor.fetchone()
-
-    cursor.close()
-    return resultado is not None
 
 
     
