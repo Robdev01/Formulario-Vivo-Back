@@ -45,19 +45,49 @@ def inserir_cliente(data):
         print("❌ Erro ao inserir cliente:", e)        
     raise
 
-#def pesquisar_sip():
-    # Obtém a conexão com o banco de dados MySQL
-    #conn = mysql.connection
+def buscar_por_sip(sip):
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM dados WHERE sip LIKE %s", (f"%{sip}%",))
+    rows = cursor.fetchall()
+    columns = [col[0] for col in cursor.description]
+    cursor.close()
+    return [dict(zip(columns, row)) for row in rows]
 
-    # Cria um cursor para executar comandos SQL
-    #cursor = conn.cursor()
+def buscar_por_ddr(ddr):
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM dados WHERE ddr LIKE %s", (f"%{ddr}%",))
+    rows = cursor.fetchall()
+    columns = [col[0] for col in cursor.description]
+    cursor.close()
+    return [dict(zip(columns, row)) for row in rows]
 
-    #Define a query de pesquisa(SELECT FROM) onde será procurado o valor do sip
-    #query='''
-    #    SELECT sip FROM dados WHERE sip = %s'''
+def buscar_por_lp(lp):
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM dados WHERE lp LIKE %s", (f"%{lp}%",))
+    rows = cursor.fetchall()
+    columns = [col[0] for col in cursor.description]
+    cursor.close()
+    return [dict(zip(columns, row)) for row in rows]
+
+
+
+
+def verificar_existencia(sip, ddr, lp):
+    conn = mysql.connection
+    cursor = conn.cursor()
+
+    query = "SELECT * FROM dados WHERE sip = %s OR ddr = %s OR lp = %s"
+    cursor.execute(query, (sip, ddr, lp))
+    resultado = cursor.fetchone()
+
+    cursor.close()
+    return resultado is not None
+
+
     
-    #Executa a query
-    #cursor.execute(query)
 
 
 
