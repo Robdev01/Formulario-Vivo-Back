@@ -9,8 +9,8 @@ def create_app():
 
     app.config['MYSQL_HOST'] = '127.0.0.1'
     app.config['MYSQL_USER'] = 'root'
-    app.config['MYSQL_PASSWORD'] = 'Lucas3306'
-    app.config['MYSQL_DB'] = 'dados_formulario'
+    app.config['MYSQL_PASSWORD'] = ''
+    app.config['MYSQL_DB'] = 'dados_formularios'
 
 
     print("📋 Conectando ao MySQL:")

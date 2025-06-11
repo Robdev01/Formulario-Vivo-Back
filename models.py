@@ -4,5 +4,4 @@ def get_cliente_fields():
     return ["cliente", "sip", "ddr", "lp", "atposx", "cabo", "fibras", "enlace", "porta"]
 
 def get_usuario_fields():
-
-    return ["nome", "login", "senha", "permissao"]
+    return ['nome', 'login', 'senha', 'permissao']
