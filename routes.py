@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
-from controller import inserir_cliente, verificar_existencia, buscar_por_sip, buscar_por_ddr, buscar_por_lp, cadastrar_usuarios, autenticar_usuario, verificar_login_existente
-from models import get_cliente_fields, get_usuario_fields
+from controller import inserir_cliente, verificar_existencia, buscar_por_sip, buscar_por_ddr, buscar_por_lp, \
+    cadastrar_usuarios, autenticar_usuario, verificar_login_existente, atualizar_cliente, deletar_cliente
+from models import get_cliente_fields, get_usuario_fields, get_cliente_fields_cadastro
 
 cadastro_routes = Blueprint('cadastro_routes', __name__)
 
@@ -8,7 +9,7 @@ cadastro_routes = Blueprint('cadastro_routes', __name__)
 @cadastro_routes.route('/cadastro', methods=['POST'])
 def cadastrar_cliente():
     data = request.json
-    for field in get_cliente_fields():
+    for field in get_cliente_fields_cadastro():
         if field not in data or not data[field]:
             return jsonify({'error': f'Campo obrigatório: {field}'}), 400
     try:
@@ -85,3 +86,21 @@ def login_usuario():
             return jsonify({'error': 'Login ou senha inválidos'}), 401
     except Exception as e:
         return jsonify({'error': f'Erro ao realizar login: {str(e)}'}), 500
+
+@cadastro_routes.route('/atualizar/cadastro/<int:id>', methods=['PUT'])
+def atualizar_cliente_route(id):
+    data = request.json
+    try:
+        atualizar_cliente(id, data)
+        return jsonify({'message': 'Cliente atualizado com sucesso!'}), 200
+    except Exception as e:
+        return jsonify({'error': f'Erro ao atualizar cliente: {str(e)}'}), 500
+
+
+@cadastro_routes.route('/cadastro/<int:id>', methods=['DELETE'])
+def deletar_cliente_route(id):
+    try:
+        deletar_cliente(id)
+        return jsonify({'message': 'Cliente deletado com sucesso!'}), 200
+    except Exception as e:
+        return jsonify({'error': f'Erro ao deletar cliente: {str(e)}'}), 500

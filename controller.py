@@ -1,5 +1,37 @@
 from __init__ import mysql
 import traceback
+from models import get_cliente_fields
+
+
+def atualizar_cliente(id, data):
+    try:
+        conn = mysql.connection
+        cursor = conn.cursor()
+
+        campos = get_cliente_fields()
+        set_clause = ", ".join([f"{campo} = %s" for campo in campos])
+        valores = [data[campo] for campo in campos]
+
+        query = f"UPDATE dados SET {set_clause} WHERE id = %s"
+        valores.append(id)
+
+        cursor.execute(query, valores)
+        conn.commit()
+        cursor.close()
+    except Exception as e:
+        print(f"Erro ao atualizar cliente: {str(e)}\n{traceback.format_exc()}")
+        raise
+
+def deletar_cliente(id):
+    try:
+        conn = mysql.connection
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM dados WHERE id = %s", (id,))
+        conn.commit()
+        cursor.close()
+    except Exception as e:
+        print(f"Erro ao deletar cliente: {str(e)}\n{traceback.format_exc()}")
+        raise
 
 def buscar_por_sip(sip):
     try:
