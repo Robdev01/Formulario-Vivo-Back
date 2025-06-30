@@ -1,6 +1,13 @@
 # Formulário Vivo
 O _Formulário Vivo_ disponibiliza uma API que permite acesso aos módulos do sistema.
 
+# Funcionalidades
+* Cadastro de equipamentos
+* Remoção de equipamentos
+* Alteração de equipamentos
+* Busca de equipamentos
+* Cadastro de usuários
+
 Dependências necessárias para fazer a API funcionar:
 * Flask
 * flask-cors
