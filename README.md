@@ -1,7 +1,7 @@
 # Formulário Vivo
 O _Formulário Vivo_ disponibiliza uma API que permite acesso aos módulos do sistema.
 
-Requerimentos necessários para a API funcionar:
+Dependências necessárias para fazer a API funcionar:
 * Flask
 * flask-cors
 * flask-mysqldb
