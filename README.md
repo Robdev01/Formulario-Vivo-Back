@@ -1,5 +1,5 @@
 # Formulário Vivo
-O _Formulário Vivo_ disponibiliza uma API que permite acesso aos módulos do sistema.
+O _Formulário Vivo_ disponibiliza uma API que permite acesso a um sistema de busca, cadastro e alteração de dados de equipamentos em um sistema.
 
 # Funcionalidades
 * Cadastro de equipamentos
@@ -60,22 +60,22 @@ ________________________________________________________________________________
 
 def buscar_por_sip(sip):
 
-Essa definição conecta com o banco de dados e localiza qualquer caractere existente em sip digitado no balão de busca para mostra-lo na área de resultado, permitindo uma busca que pode ser precisa caso digite um valor sip completo presente ou ampla se digitar apenas um ou mais caracteres. Caso não tenha nenhum caractere existente como valor sip você verá a mensagem "Erro em buscar_por_sip".
+Essa definição conecta com o banco de dados e localiza qualquer caractere existente em SIP digitado no balão de busca para mostra-lo na área de resultado, permitindo uma busca que pode ser precisa caso digite um valor SIP completo presente ou ampla se digitar apenas um ou mais caracteres. Caso não tenha nenhum caractere existente como valor SIP você verá a mensagem "Erro em buscar_por_sip".
 __________________________________________________________________________________________________________
 
 def buscar_por_ddr(ddr):
 
-Essa definição conecta com o banco de dados e localiza qualquer caractere existente em ddr digitado no balão de busca para mostra-lo na área de resultado, permitindo uma busca que pode ser precisa caso digite um valor ddr completo presente ou ampla se digitar apenas um ou mais caracteres. Caso não tenha nenhum caractere existente como valor ddr você verá a mensagem "Erro em buscar_por_ddr".
+Essa definição conecta com o banco de dados e localiza qualquer caractere existente em DDR digitado no balão de busca para mostra-lo na área de resultado, permitindo uma busca que pode ser precisa caso digite um valor DDR completo presente ou ampla se digitar apenas um ou mais caracteres. Caso não tenha nenhum caractere existente como valor DDR você verá a mensagem "Erro em buscar_por_ddr".
 ___________________________________________________________________________________________________________
 
 def buscar_por_lp(lp):
 
-Essa definição conecta com o banco de dados e localiza qualquer caractere existente em lp digitado no balão de busca para mostra-lo na área de resultado, permitindo uma busca que pode ser precisa caso digite um valor lp completo presente ou ampla se digitar apenas um ou mais caracteres. Caso não tenha nenhum caractere existente como valor lp você verá a mensagem "Erro em buscar_por_lp".
+Essa definição conecta com o banco de dados e localiza qualquer caractere existente em LP digitado no balão de busca para mostra-lo na área de resultado, permitindo uma busca que pode ser precisa caso digite um valor LP completo presente ou ampla se digitar apenas um ou mais caracteres. Caso não tenha nenhum caractere existente como valor LP você verá a mensagem "Erro em buscar_por_lp".
 ____________________________________________________________________________________________________________
 
 def verificar_existencia(sip, ddr, lp):
 
-Essa definição conecta com o banco de dados e faz uma verificação se o valor digitado nos balões de pesquisa de sip, ddr, ou lp estão presentes no banco de dados. Caso ocorra algum erro você verá a mensagem "Erro ao verificar_existencia".
+Essa definição conecta com o banco de dados e faz uma verificação se o valor digitado nos balões de pesquisa de SIP, DDR, ou LP estão presentes no banco de dados. Caso ocorra algum erro você verá a mensagem "Erro ao verificar_existencia".
 ____________________________________________________________________________________________________________
 
 def inserir_cliente(data):
@@ -98,9 +98,36 @@ def verificar_login_existente(login):
 Essa definição conecta com o banco de dados e verifica se o login usado existe dentro do banco de dados, caso ele não seja encontrado você verá a mensagem "Erro em verificar_login_existente".
 _____________________________________________________________________________________________________________
 
-# Mostrando API na prática
+# Mostrando a API na prática
 Aqui veremos todas as etapas do que a API pode fazer passo a passo:
 
-Primeiro temos a tela de login, que todos os usuários irão ver quando acessarem o link para usa-lá.
+Primeiro temos a tela de login da API, que todos os usuários irão ver quando acessarem o link para usa-lá.
 
-<img src="C:\Users\40418693\Pictures\Screenshots\Tela login.png" alt="Tela de login">
+<img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Tela%20login.png" alt="Tela de login">
+
+Você pode entrar usando uma conta disponibilizada por um Administrador, tendo essa conta permissão para Técnicos ou Administradores, mais a baixo veremos a diferença entra essas contas.
+
+Começamos com uma conta com permissões de Administrador, como você pode ver essa conta tem acesso a função de pesquisa por equipamentos, mas também tem acesso as opções Registro de equipamentos e Cadastro de usuário localizado no canto direito superior da tela:
+
+<img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Tela%20de%20busca%20admin.png" alt="Tela de busca admin">
+
+Diferente de uma conta com permissão de Técnico que só tem acesso a página de pesquisa por equipamentos:
+
+<img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Tela%20de%20busca%20t%C3%A9cnico.png" alt="Tela de busca técnico">
+
+Outro privilégio que apenas administradores tem acesso é a opção de modificar ou excluir dados de equipamentos depois deles serem encontrados no banco de dados, como podemos ver no exemplo abaxio:
+
+<img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Busca%20admin%20resultado.png" alt="Tela de busca admin resultado">
+
+Agora vamos até outra página que os administradores tem acesso, a tela de Registro de equipamentos, aqui você pode colocar todas as informações de um equipamento como o nome do cliente, SIP, DDR, LP, etc. Não é necessário se preocupar em preencher todos os espaços, contanto que a área de SIP, DDR, ou LP estejam preenchidas você pode registrar qualquer equipamento, mas tome cuidado pois não é possível registrar equipamentos que tenham o mesmo SIP, DDR ou LP.
+
+<img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Cadastro%20equip.png" alt="Tela de Registro de equipamentos">
+
+Por último, temos a página de cadastro de usuários, onde o administrador poderá criar novas contas para login na API e decidir qual a permissão que os usuários irão receber, lembre-se todas as áreas devem ser preenchidas para que uma nova conta seja criada.
+
+<img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Cadastro%20usu%C3%A1rio.png" alt="Tela de Cadastro de usuários">
+
+
+
+
+
