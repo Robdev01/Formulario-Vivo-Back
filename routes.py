@@ -11,7 +11,7 @@ def cadastrar_cliente():
     data = request.json
     for field in get_cliente_fields_cadastro():
         if field not in data or not data[field]:
-            return jsonify({'error': f'Campo obrigatório: {field}'}), 400
+            pass 
     try:
         if verificar_existencia(data['sip'], data['ddr'], data['lp']):
             return jsonify({'error': 'Já existe um registro com esse SIP, DDR ou LP'}), 409
