@@ -134,7 +134,7 @@ Aqui veremos todas as etapas do que a API pode fazer passo a passo:
 
 Primeiro você deve baixar o Node.js, depois de instalado digite npm install no terminal ou cmd e execute o comando:
 
-<img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Npm%20install.png" alt="npm install">
+<img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/npm%20install.png" alt="npm install">
 
 Segundo, após baixar os arquivos dos repositórios Formulário Vivo-Front e Formulário Vivo-Back e coloca-los em pastas separadas você deve abrir essas pastas em um editor de código, dirija-se até o arquivo requirements.txt para ver todas as bibliotecas necessárias para fazer a API funcionar e em seguida abra o terminal e digite o comando "pip install -r requirements.txt":
 
