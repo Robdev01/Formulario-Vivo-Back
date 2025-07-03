@@ -13,7 +13,7 @@ def cadastrar_cliente():
         if field not in data or not data[field]:
             pass 
     try:
-        if verificar_existencia(data['sip'], data['ddr'], data['lp']):
+        if verificar_existencia(data ['cliente'], data['sip'], data['ddr'], data['lp']):
             return jsonify({'error': 'Já existe um registro com esse SIP, DDR ou LP'}), 409
         inserir_cliente(data)
         return jsonify({'message': 'Cliente cadastrado com sucesso!'}), 201
