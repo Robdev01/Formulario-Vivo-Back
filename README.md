@@ -1,10 +1,10 @@
-# 🛠 Formulário Vivo - Backend
+# Formulário Vivo - Backend
 
 Este repositório contém o backend da aplicação **Formulário Vivo**, desenvolvido com Flask. Ele é responsável por gerenciar as rotas, controlar a lógica de negócio e interagir com os dados do formulário.
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 Formulario-Vivo-Back/
@@ -19,7 +19,7 @@ Formulario-Vivo-Back/
 
 ---
 
-## 🚀 Como executar
+## Como executar
 
 1. **Crie o ambiente virtual:**
 
@@ -52,7 +52,7 @@ python app.py
 
 ---
 
-## 🔧 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - Python 3.x
 - Flask
@@ -61,13 +61,13 @@ python app.py
 
 ---
 
-## 🧠 Observações
+## Observações
 
 - Certifique-se de que o banco de dados esteja configurado e acessível antes de rodar a aplicação.
 - O arquivo `Procedimento.txt` pode conter instruções ou observações sobre o uso do sistema.
 
 ---
 
-## 📌 Autor
+## Autor
 
 Desenvolvido por Robson Calheira.
