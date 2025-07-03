@@ -9,13 +9,44 @@ O _Formulário Vivo_ disponibiliza uma API que permite acesso a um sistema de bu
 * Cadastro de usuários
 
 Dependências necessárias para fazer a API funcionar:
-* Flask
-* flask-cors
-* flask-mysqldb
-* python-dotenv
-* React
-* HTML
-* Json
+* annotated-types==0.7.0
+* anyio==4.9.0
+* blinker==1.9.0
+* click==8.1.8
+* colorama==0.4.6
+* dotenv==0.9.9
+* et_xmlfile==2.0.0
+* fastapi==0.115.14
+* Flask==3.1.0
+* flask-cors==6.0.0
+* Flask-MySQLdb==2.0.0
+* greenlet==3.2.3
+* idna==3.10
+* itsdangerous==2.2.0
+* Jinja2==3.1.6
+* MarkupSafe==3.0.2
+* mysql-connector==2.2.9
+* mysql-connector-python==9.2.0
+* mysqlclient==2.2.7
+* numpy==2.2.4
+* openpyxl==3.1.5
+* pandas==2.2.3
+* pydantic==2.11.7
+* pydantic_core==2.33.2
+* PyMySQL==1.1.1
+* python-dateutil==2.9.0.post0
+* python-dotenv==1.1.0
+* pytz==2025.2
+* pywin32==310
+* six==1.17.0
+* sniffio==1.3.1
+* SQLAlchemy==2.0.41
+* starlette==0.46.2
+* typing-inspection==0.4.1
+* typing_extensions==4.14.0
+* tzdata==2025.2
+* Werkzeug==3.1.3
+
 
 # Métodos
 Métodos que podem ser usados para a API:
@@ -101,7 +132,17 @@ ________________________________________________________________________________
 # Mostrando a API na prática
 Aqui veremos todas as etapas do que a API pode fazer passo a passo:
 
-Primeiro temos a tela de login da API, que todos os usuários irão ver quando acessarem o link para usa-lá.
+Primeiro você deve baixar o Node.js, depois de instalado digite npm install na barra de pesquisa da sua barra de tarefas e execute o comando:
+
+<img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Npm%20install.png" alt="npm install">
+
+Segundo, após baixar os arquivos dos repositórios Formulário Vivo-Front e Formulário Vivo-Back e coloca-los em pastas separadas você deve abrir essas pastas em um editor de código, dirija-se até o arquivo requirements.txt para ver todas as bibliotecas necessárias para fazer a API funcionar e em seguida abra o terminal e digite o comando "pip install -r requirements.txt":
+
+<img src ="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Requirements.png" alt="Requerimentos">
+
+Esse comando ira instalar todas as biblioetacas e dependencias presentes no arquivo de texto, lembrando que isso deve ser feito em ambas as janelas, caso não o faça a API não funcionará.
+
+Quando a API estiver funcionando nós chegamos na tela de login da API, que todos os usuários irão ver quando acessarem o link para usa-lá.
 
 <img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Tela%20login.png" alt="Tela de login">
 
