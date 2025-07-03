@@ -132,7 +132,7 @@ ________________________________________________________________________________
 # Mostrando a API na prática
 Aqui veremos todas as etapas do que a API pode fazer passo a passo:
 
-Primeiro você deve baixar o Node.js, depois de instalado digite npm install na barra de pesquisa da sua barra de tarefas e execute o comando:
+Primeiro você deve baixar o Node.js, depois de instalado digite npm install no terminal ou cmd e execute o comando:
 
 <img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Npm%20install.png" alt="npm install">
 
