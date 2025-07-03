@@ -72,18 +72,44 @@ def buscar_por_lp(lp):
         print(f"Erro em buscar_por_lp: {str(e)}")
         raise
 
-def verificar_existencia(sip, ddr, lp):
+def verificar_existencia(cliente, sip, ddr, lp):
     try:
         conn = mysql.connection
         cursor = conn.cursor()
-        query = "SELECT * FROM dados WHERE sip = %s OR ddr = %s OR lp = %s"
-        cursor.execute(query, (sip, ddr, lp))
+
+        # Monta a query dinamicamente com base nos campos preenchidos
+        conditions = []
+        values = []
+
+        if sip:
+            conditions.append("sip = %s")
+            values.append(sip)
+        if ddr:
+            conditions.append("ddr = %s")
+            values.append(ddr)
+        if lp:
+            conditions.append("lp = %s")
+            values.append(lp)
+
+        if not conditions:
+            return False  # Nenhum campo foi preenchido
+
+        query = f"""
+            SELECT sip, ddr, lp FROM dados
+            WHERE cliente = %s AND ({' OR '.join(conditions)})
+        """
+        values.insert(0, cliente)  # Adiciona cliente como primeiro parâmetro
+
+        cursor.execute(query, values)
         resultado = cursor.fetchone()
         cursor.close()
-        return resultado is not None
+
+        return resultado  # Pode retornar None ou a tupla com os campos encontrados
+
     except Exception as e:
         print(f"Erro em verificar_existencia: {str(e)}")
         raise
+
 
 def inserir_cliente(data):
     try:
