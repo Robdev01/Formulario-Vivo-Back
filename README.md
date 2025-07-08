@@ -130,17 +130,18 @@ Essa definição conecta com o banco de dados e verifica se o login usado existe
 _____________________________________________________________________________________________________________
 
 # Mostrando a API na prática
-Aqui veremos todas as etapas do que a API pode fazer passo a passo:
+Aqui veremos todas as etapas do que a API precisa para funcionar e oque ela pode fazer:
 
-Primeiro você deve baixar o Node.js, depois de instalado digite npm install no terminal ou cmd e execute o comando:
-
-<img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/npm%20install.png" alt="npm install">
-
-Segundo, após baixar os arquivos dos repositórios Formulário Vivo-Front e Formulário Vivo-Back e coloca-los em pastas separadas você deve abrir essas pastas em um editor de código, dirija-se até o arquivo requirements.txt para ver todas as bibliotecas necessárias para fazer a API funcionar e em seguida abra o terminal e digite o comando "pip install -r requirements.txt":
+Primeiro, após baixar os arquivos dos repositórios Formulário Vivo-Front e Formulário Vivo-Back e coloca-los em pastas separadas você deve abrir essas pastas em um editor de código, dirija-se até o arquivo requirements.txt para ver todas as bibliotecas necessárias para fazer a API funcionar e em seguida abra o terminal e digite o comando "pip install -r requirements.txt":
 
 <img src ="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Requirements.png" alt="Requerimentos">
 
-Esse comando ira instalar todas as biblioetacas e dependencias presentes no arquivo de texto, lembrando que isso deve ser feito em ambas as janelas, caso não o faça a API não funcionará.
+Esse comando ira instalar todas as bibliotecas e dependências presentes no arquivo de texto, lembrando que isso deve ser feito em ambas as janelas.
+
+Segundo, você deve baixar o Node.js, depois de instalado digite npm install no terminal ou cmd e execute o comando:
+
+<img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/npm%20install.png" alt="npm install">
+
 
 Quando a API estiver funcionando nós chegamos na tela de login da API, que todos os usuários irão ver quando acessarem o link para usa-lá.
 
