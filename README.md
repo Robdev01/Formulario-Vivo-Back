@@ -10,6 +10,7 @@ O _Formulário Vivo_ disponibiliza uma API que permite acesso a um sistema de bu
 
 Dependências necessárias para fazer a API funcionar:
 * annotated-types==0.7.0
+* React
 * anyio==4.9.0
 * blinker==1.9.0
 * click==8.1.8
@@ -136,11 +137,13 @@ Primeiro, após baixar os arquivos dos repositórios Formulário Vivo-Front e Fo
 
 <img src ="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/Requirements.png" alt="Requerimentos">
 
-Esse comando ira instalar todas as bibliotecas e dependências presentes no arquivo de texto, lembrando que isso deve ser feito em ambas as janelas.
+Esse comando ira instalar todas as bibliotecas e dependências presentes no arquivo de texto..
 
 Segundo, você deve baixar o Node.js, depois de instalado digite npm install no terminal ou cmd e execute o comando:
 
 <img src="https://github.com/LucasPS23/Formulario-Vivo-Back/blob/main/Imagens_API/npm%20install.png" alt="npm install">
+
+Esse comando vai instalar os componentes do React, que é necessário para fazer a parte Front-end da API funcionar, para ligar a API você deve usar o comando "npm run dev" que vai lhe dar o link para a página inicial da API.
 
 
 Quando a API estiver funcionando nós chegamos na tela de login da API, que todos os usuários irão ver quando acessarem o link para usa-lá.
